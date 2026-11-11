@@ -88,7 +88,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Teknik Informtika',
+                  'Teknik Informatika',
                   style: textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
