@@ -80,7 +80,30 @@ class ProfilePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
 
-                
+                const SizedBox(height: 8),
+                Text(
+                  'NIM: 1124160223',
+                  style: textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Teknik Infotika',
+                  style: textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 
 
 
