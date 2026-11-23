@@ -43,6 +43,60 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: colorScheme.primary),
+              currentAccountPicture: const CircleAvatar(
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
+              ),
+              accountName: Text(
+                _profile.nama,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              accountEmail: Text(_profile.email),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil Saya'),
+              selected: true,
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: const Text('Tentang Saya'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.edit),
+              title: const Text('Edit Profil'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            const Divider(),
+            SwitchListTile(
+              secondary: const Icon(Icons.brightness_6),
+              title: const Text('Mode Gelap'),
+              value: widget.isDarkMode,
+              onChanged: widget.onToggleTheme,
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.red),
+              title: const Text('Keluar', style: TextStyle(color: Colors.red)),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
