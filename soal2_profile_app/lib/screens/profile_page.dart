@@ -206,21 +206,21 @@ class _ProfilePageState extends State<ProfilePage> {
         icon: const Icon(Icons.edit),
         label: const Text('Edit Profil'),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        onTap: (index) {
-          if (index == 1) {
-            Navigator.pushNamed(context, '/about');
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Tentang Saya',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: 0,
+      //   onTap: (index) {
+      //     if (index == 1) {
+      //       Navigator.pushNamed(context, '/about');
+      //     }
+      //   },
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.school),
+      //       label: 'Tentang Saya',
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

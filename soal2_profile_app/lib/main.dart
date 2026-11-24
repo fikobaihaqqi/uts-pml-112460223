@@ -31,17 +31,18 @@ class _MyAppState extends State<MyApp> {
       title: 'Profil Fiko',
       debugShowCheckedModeBanner: false,
       themeMode: _themeMode,
+      // File: soal2_profile_app/lib/main.dart (di dalam build MyApp)
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+          seedColor: Colors.blueGrey,
           brightness: Brightness.light,
         ),
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+          seedColor: Colors.blueGrey,
           brightness: Brightness.dark,
         ),
       ),
