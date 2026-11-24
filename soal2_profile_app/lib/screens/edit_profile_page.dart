@@ -51,6 +51,23 @@ class _EditProfilePageState extends State<EditProfilePage> {
     super.dispose();
   }
 
+  void _saveProfile() {
+    if (!_formKey.currentState!.validate()) return;
+
+    final updatedProfile = Profile(
+      nama: _namaController.text.trim(),
+      nim: _nimController.text.trim(),
+      prodi: _prodiController.text.trim(),
+      kelas: _kelasController.text.trim(),
+      bio: _bioController.text.trim(),
+      email: _emailController.text.trim(),
+      hp: _hpController.text.trim(),
+      github: _githubController.text.trim(),
+    );
+
+    Navigator.pop(context, updatedProfile);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +87,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     prefixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(),
                   ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Nama wajib diisi';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
@@ -117,6 +140,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     prefixIcon: Icon(Icons.email),
                     border: OutlineInputBorder(),
                   ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Email wajib diisi';
+                    }
+                    final emailRegex = RegExp(
+                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                    );
+                    if (!emailRegex.hasMatch(value.trim())) {
+                      return 'Masukkan alamat email yang valid';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
@@ -127,6 +162,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     prefixIcon: Icon(Icons.phone),
                     border: OutlineInputBorder(),
                   ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Nomor HP wajib diisi';
+                    }
+                    final hpRegex = RegExp(r'^[0-9]{10,13}$');
+                    if (!hpRegex.hasMatch(value.trim())) {
+                      return 'Nomor HP harus berupa angka 10-13 digit';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
@@ -139,9 +184,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
                 const SizedBox(height: 24),
                 FilledButton.icon(
-                  onPressed: () {},
+                  onPressed: _saveProfile,
                   icon: const Icon(Icons.save),
                   label: const Text('SIMPAN PERUBAHAN'),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
                 ),
               ],
             ),
