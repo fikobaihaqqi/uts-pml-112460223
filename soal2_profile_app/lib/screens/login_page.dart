@@ -81,7 +81,6 @@ class _LoginPageState extends State<LoginPage> {
                       labelText: 'Email Mahasiswa',
                       hintText: 'fikobaihaqqi@gmail.com',
                       prefixIcon: Icon(Icons.email_outlined),
-                      border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
@@ -103,7 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       labelText: 'Kata Sandi',
                       prefixIcon: const Icon(Icons.lock_outline),
-                      border: const OutlineInputBorder(),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscurePassword
